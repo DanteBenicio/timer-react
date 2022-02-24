@@ -35,11 +35,23 @@ function App() {
 
   return (
     <main className="main_container">
-      <div>{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
-      <input type="number" ref={inputRef}/>
-      <button onClick={() => {
-        initTimer()
-      }}>Let's Go</button>
+      <div className="circular">
+        <div className="inner">
+          <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
+        </div>
+        <div className="circle">
+          <div className="bar left" ref={leftBar}>
+            <div className="progress"></div>
+          </div>
+          <div className="bar right" ref={rightBar}>
+            <div className="progress"></div>
+          </div>
+        </div>
+      </div>
+      <div className="input_section">
+        <input type="number" ref={inputRef} placeholder="Insert the time in minutes"/>
+        <button onClick={initTimer}>Let's Go</button>
+      </div>
     </main>
   )
 }
