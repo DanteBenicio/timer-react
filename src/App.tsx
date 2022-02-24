@@ -5,7 +5,9 @@ function App() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [timerFinished, setTimerFinished] = useState(true);
-  const inputRef = useRef<HTMLInputElement | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const leftBar = useRef<HTMLDivElement | null>(null);
+  const rightBar = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!timerFinished) {
