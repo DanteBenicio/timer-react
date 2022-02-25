@@ -64,11 +64,11 @@ function App() {
           <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
         </div>
         <div className="circle">
-          <div className="bar left" ref={leftBar}>
-            <div className="progress"></div>
+          <div className="bar left">
+            <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={leftProgressBar}></div>
           </div>
-          <div className="bar right" ref={rightBar}>
-            <div className="progress"></div>
+          <div className="bar right" >
+            <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={rightProgressBar}></div>
           </div>
         </div>
       </div>
