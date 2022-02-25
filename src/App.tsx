@@ -57,6 +57,9 @@ function App() {
     <main className="main_container">
       <div className="circular">
         <div className="inner">
+          {timerFinished ? (
+            <div className="timer finished">O tempo acabou!</div>
+          ) : (
           <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
         </div>
         <div className="circle">
