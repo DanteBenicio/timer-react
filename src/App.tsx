@@ -28,9 +28,27 @@ function App() {
   }, [seconds, timerFinished])
 
   function initTimer() {
-    setTimerFinished(!timerFinished);
-    if (inputRef.current) {
+    if (minutes === 0 && seconds === 0) {
+      setTimerFinished(!timerFinished);
+    }
+
+    if (inputRef.current?.value) {
       setMinutes(Number(inputRef.current.value))
+
+      const timeInFullBarProgress = Number(inputRef.current.value) * 60;
+      const timeInEachBar = timeInFullBarProgress / 2
+
+      if (leftBar.current?.firstChild) {
+        console.log(timeInEachBar)
+
+        leftBar.current.firstChild.style.animation = `left ${timeInEachBar}s linear both`
+        leftBar.current.firstChild.style.animationDelay = `${timeInEachBar}s`
+      }
+
+      if (rightBar.current?.firstChild) {
+        rightBar.current.firstChild.style.animation = `right ${timeInEachBar}s linear both`
+      }
+
       inputRef.current.value = ''
     }
   }
