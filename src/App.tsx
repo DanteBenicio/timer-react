@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import './styles/app.css'
 
 function App() {
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [timerFinished, setTimerFinished] = useState(true);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+  const [timerStarted, setTimerStarted] = useState<boolean>(false);
+  const [timerFinished, setTimerFinished] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const leftBar = useRef<HTMLDivElement | null>(null);
   const rightBar = useRef<HTMLDivElement | null>(null);
