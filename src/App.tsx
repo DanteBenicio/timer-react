@@ -29,7 +29,8 @@ function App() {
 
   function initTimer() {
     if (minutes === 0 && seconds === 0) {
-      setTimerFinished(!timerFinished);
+      setTimerStarted(true);
+      setTimerFinished(false);
     }
 
     if (inputRef.current?.value) {
