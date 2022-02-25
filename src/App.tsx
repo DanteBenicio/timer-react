@@ -61,7 +61,8 @@ function App() {
           {timerFinished ? (
             <div className="timer finished">Time over!</div>
           ) : (
-          <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
+            <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
+          )}
         </div>
         <div className="circle">
           <div className="bar left">
