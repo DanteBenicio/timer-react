@@ -72,7 +72,7 @@ function App() {
         </div>
       </div>
       <div className="input_section">
-        <input type="number" ref={inputRef} placeholder="Insert the time in minutes"/>
+        <input type="number" ref={inputRef} placeholder="Enter time in minutes"/>
         <button onClick={initTimer}>Let's Go</button>
       </div>
     </main>
