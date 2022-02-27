@@ -93,6 +93,9 @@ function App() {
     <>
       {message && (
         <div className="message">
+          {Number(inputRef.current?.value) <= 0 ? (
+            <p>Enter a time greater than zero</p>
+          ) : (
           <p>The counter has already started!</p>
         </div>
       )}
