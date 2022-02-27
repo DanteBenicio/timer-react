@@ -102,6 +102,8 @@ function App() {
             <div className="inner">
               {timerFinished ? ( 
                 <div className="timer finished">{clearTimer ? '0:00' : 'Time over!'}</div>
+                  <audio src="assets/alarm-clock.mp3" autoPlay loop/>
+                </>
               ) : (
                 <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
               )}
