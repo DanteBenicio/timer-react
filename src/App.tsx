@@ -52,6 +52,18 @@ function App() {
       }
 
       inputRef.current.value = ''
+      }
+    }
+  }
+
+  function handleClearTimer() {
+    setTimerStarted(false);
+    setTimerFinished(true);
+    setClearTimer(true);
+
+    if (leftProgressBar.current && rightProgressBar.current) {
+      leftProgressBar.current.style.animation = ''
+      rightProgressBar.current.style.animation = ''
     }
   }
 
@@ -67,21 +79,21 @@ function App() {
           <div className="circular">
             <div className="inner">
               {timerFinished ? ( 
-            <div className="timer finished">Time over!</div>
-          ) : (
-            <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
-          )}
-        </div>
-        <div className="circle">
-          <div className="bar left">
-            <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={leftProgressBar}></div>
+                <div className="timer finished">{clearTimer ? '0:00' : 'Time over!'}</div>
+              ) : (
+                <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
+              )}
+            </div>
+            <div className="circle">
+              <div className="bar left">
+                <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={leftProgressBar}></div>
+              </div>
+              <div className="bar right" >
+                <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={rightProgressBar}></div>
+              </div>
+            </div>
           </div>
-          <div className="bar right" >
-            <div className={`${timerFinished ? 'progress-finished' : 'progress'}`} ref={rightProgressBar}></div>
-          </div>
-        </div>
-      </div>
-      <div className="input_section">
+          <div className="input_section">
             <div className="input_group">
               <input type="number" ref={inputRef} placeholder="Enter time in minutes"/>
               <button onClick={initTimer}>Let's Go</button>
