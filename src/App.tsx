@@ -6,6 +6,8 @@ function App() {
   const [seconds, setSeconds] = useState<number>(0);
   const [timerStarted, setTimerStarted] = useState<boolean>(false);
   const [timerFinished, setTimerFinished] = useState<boolean>(false);
+  const [clearTimer, setClearTimer] = useState<boolean>(false);
+  const [message, setMessage] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const leftBar = useRef<HTMLDivElement | null>(null);
   const rightBar = useRef<HTMLDivElement | null>(null);
