@@ -10,8 +10,5 @@ body, #root {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #0F3F60;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 0.5rem;
+  position: relative;
 }
