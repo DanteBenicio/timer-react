@@ -4,7 +4,13 @@
   position: relative;
   display: grid;
   place-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 330px) {
+  .section_container {
+    padding: 0.5rem 0.5rem;
+  }
 }
 
 .main_container {
@@ -123,6 +129,12 @@
   height: 200px;
   padding: 0 2rem;
   gap: 2rem;
+}
+
+@media screen and (max-width: 330px) {
+  .input_section {
+    padding: 0 1rem;
+  }
 }
 
 @keyframes showMessage {
