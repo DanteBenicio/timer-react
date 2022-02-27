@@ -94,6 +94,52 @@
 .input_section {
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+@keyframes showMessage {
+  0% {
+    top: 0;
+    left: 50%;
+    transform: translateY(-20%);
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    top: 5%;
+    left: 50%;
+    transform: translateY(0%);
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+} 
+
+.message {
+  position: absolute;
+  z-index: 999;
+  animation: showMessage 0.5s ease-in-out forwards;
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #44DB74;
+  border-radius: 0.5rem;
+}
+
+.message > p {
+  color: #fff;
+  font-weight: 700;
+}
+
+.input_group {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
