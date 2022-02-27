@@ -93,7 +93,7 @@ function App() {
     <>
       {message && (
         <div className="message">
-          <p>O Contador ja foi iniciado</p>
+          <p>The counter has already started!</p>
         </div>
       )}
       <section className="section_container">
