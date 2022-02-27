@@ -9,16 +9,30 @@ function App() {
   const [clearTimer, setClearTimer] = useState<boolean>(false);
   const [message, setMessage] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const leftBar = useRef<HTMLDivElement | null>(null);
-  const rightBar = useRef<HTMLDivElement | null>(null);
+  const leftProgressBar = useRef<HTMLDivElement | null>(null);
+  const rightProgressBar = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!timerFinished) {
-      setTimeout(() => {
+    if (clearTimer) {
+      setMinutes(0)
+      setSeconds(0)
+
+      return;
+    }
+
+    if (timerStarted) {
+      const time = setTimeout(() => {
         if (minutes === 0 && seconds === 0) {
-          setTimerFinished(true)
+          setTimerStarted(false);
+          setTimerFinished(true);
+
+          if (leftProgressBar.current && rightProgressBar.current) {
+            leftProgressBar.current.style.animation = ''
+            rightProgressBar.current.style.animation = ''
+          }
           return ;
         }
+
         if(seconds === 0 ) {
           setSeconds(59)
           setMinutes(prevMinutes => prevMinutes - 1)
@@ -26,9 +40,9 @@ function App() {
           setSeconds(prevSeconds => prevSeconds - 1)
         }
 
-      }, 1000)
+      }, 1000);
     }
-  }, [seconds, timerFinished])
+  }, [seconds, timerStarted, clearTimer])
 
   function initTimer() {
     if (timerStarted) {
@@ -59,7 +73,7 @@ function App() {
       }
 
       if (inputRef.current) {
-      inputRef.current.value = ''
+        inputRef.current.value = ''
       }
     }
   }
