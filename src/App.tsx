@@ -100,8 +100,9 @@ function App() {
         <main className="main_container">
           <div className="circular">
             <div className="inner">
-              {timerFinished ? ( 
-                <div className="timer finished">{clearTimer ? '0:00' : 'Time over!'}</div>
+              {timerFinished && alarmSound ? (
+                <>
+                  <div className="timer finished">{clearTimer ? '0:00' : 'Time over!'}</div>
                   <audio src="assets/alarm-clock.mp3" autoPlay loop/>
                 </>
               ) : (
