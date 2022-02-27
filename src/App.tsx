@@ -63,10 +63,10 @@ function App() {
         </div>
       )}
       <section className="section_container">
-    <main className="main_container">
-      <div className="circular">
-        <div className="inner">
-          {timerFinished ? (
+        <main className="main_container">
+          <div className="circular">
+            <div className="inner">
+              {timerFinished ? ( 
             <div className="timer finished">Time over!</div>
           ) : (
             <div className="timer">{minutes}:{seconds < 10 ? String(seconds).padStart(2, '0') : seconds}</div>
@@ -82,10 +82,15 @@ function App() {
         </div>
       </div>
       <div className="input_section">
-        <input type="number" ref={inputRef} placeholder="Enter time in minutes"/>
-        <button onClick={initTimer}>Let's Go</button>
-      </div>
-    </main>
+            <div className="input_group">
+              <input type="number" ref={inputRef} placeholder="Enter time in minutes"/>
+              <button onClick={initTimer}>Let's Go</button>
+              <button onClick={handleClearTimer}>Clear</button>
+            </div>
+          </div>
+        </main>
+      </section>
+    </>
   )
 }
 
