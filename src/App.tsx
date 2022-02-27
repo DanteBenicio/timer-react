@@ -45,6 +45,15 @@ function App() {
   }, [seconds, timerStarted, clearTimer])
 
   function initTimer() {
+    if (Number(inputRef.current?.value) <= 0) {
+      setMessage(true)
+
+      setTimeout(() => {
+        setMessage(false)
+      }, 5000)
+      return;
+    }
+
     if (timerStarted) {
       setMessage(true)
 
@@ -79,9 +88,6 @@ function App() {
   }
 
   function handleClearTimer() {
-    if (minutes === 0 && seconds === 0) {
-      return;
-    }
     setTimerStarted(false);
     setTimerFinished(true);
     setClearTimer(true);
