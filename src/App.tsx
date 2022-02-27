@@ -118,8 +118,12 @@ function App() {
           <div className="input_section">
             <div className="input_group">
               <input type="number" ref={inputRef} placeholder="Enter time in minutes"/>
-              <button onClick={initTimer}>Let's Go</button>
-              <button onClick={handleClearTimer}>Clear</button>
+              <button onClick={initTimer} className="button blue">Let's Go</button>
+              {alarmSound ? (
+                <button onClick={() => setAlarmSound(false)} className="button red">Stop Alarm</button>
+              ) : (
+                <button onClick={handleClearTimer} className="button red">Clear</button>
+              )}
             </div>
           </div>
         </main>
