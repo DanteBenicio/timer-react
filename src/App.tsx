@@ -29,15 +29,22 @@ function App() {
   }, [seconds, timerFinished])
 
   function initTimer() {
-    if (minutes === 0 && seconds === 0) {
-      setTimerStarted(true);
-      setTimerFinished(false);
+    if (timerStarted) {
+      setMessage(true)
+
+      setTimeout(() => {
+        setMessage(false)
+      }, 5000)
+      return;
     }
 
-    if (inputRef.current?.value) {
-      setMinutes(Number(inputRef.current.value))
+    if (Number(inputRef.current?.value)) {
+      setTimerStarted(true);
+      setTimerFinished(false);
+      setClearTimer(false);
+      setMinutes(Number(inputRef.current?.value))
 
-      const timeInFullBarProgress = Number(inputRef.current.value) * 60;
+      const timeInFullBarProgress = Number(inputRef.current?.value) * 60;
       const timeInEachBar = timeInFullBarProgress / 2
 
       if (leftProgressBar.current) {
