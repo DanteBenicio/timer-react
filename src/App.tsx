@@ -6,6 +6,7 @@ function App() {
   const [seconds, setSeconds] = useState<number>(0);
   const [timerStarted, setTimerStarted] = useState<boolean>(false);
   const [timerFinished, setTimerFinished] = useState<boolean>(false);
+  const [alarmSound, setAlarmSound] = useState<boolean>(false);
   const [clearTimer, setClearTimer] = useState<boolean>(false);
   const [message, setMessage] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -21,10 +22,11 @@ function App() {
     }
 
     if (timerStarted) {
-      const time = setTimeout(() => {
+      setTimeout(() => {
         if (minutes === 0 && seconds === 0) {
           setTimerStarted(false);
           setTimerFinished(true);
+          setAlarmSound(true);
 
           if (leftProgressBar.current && rightProgressBar.current) {
             leftProgressBar.current.style.animation = ''
@@ -63,7 +65,7 @@ function App() {
       return;
     }
 
-    if (Number(inputRef.current?.value)) {
+    if (Number(inputRef.current?.value) > 0) {
       setTimerStarted(true);
       setTimerFinished(false);
       setClearTimer(false);
@@ -88,6 +90,9 @@ function App() {
   }
 
   function handleClearTimer() {
+    if (minutes === 0 && seconds === 0) {
+      return;
+    }
     setTimerStarted(false);
     setTimerFinished(true);
     setClearTimer(true);
@@ -102,7 +107,11 @@ function App() {
     <>
       {message && (
         <div className="message">
-          <p>The counter has already started!</p>
+          {Number(inputRef.current?.value) <= 0 ? (
+            <p>Enter a time greater than zero</p>
+          ) : (
+            <p>The counter has already started!</p>
+          )}
         </div>
       )}
       <section className="section_container">
