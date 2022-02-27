@@ -51,6 +51,7 @@ function App() {
         rightBar.current.firstChild.style.animation = `right ${timeInEachBar}s linear both`
       }
 
+      if (inputRef.current) {
       inputRef.current.value = ''
       }
     }
