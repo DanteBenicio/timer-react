@@ -91,6 +91,8 @@
   transform: rotate(180deg)
 }
 
+.progress-finished {}
+
 .input_section {
   width: 100%;
   display: flex;
@@ -144,8 +146,7 @@
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  height: 200px;
-  padding: 4rem 2rem;
+  width: 100%;
 }
 
 .input_section > input::placeholder {
