@@ -166,7 +166,11 @@
   text-align: center;
 }
 
-.input_section > button {
+.input_section .input_group > input:focus::placeholder {
+  color: transparent;
+}
+
+.input_section .input_group > button {
   padding: 1rem 4rem;
   border: none;
   border-radius: 0.5rem;

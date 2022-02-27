@@ -56,6 +56,13 @@ function App() {
   }
 
   return (
+    <>
+      {message && (
+        <div className="message">
+          <p>O Contador ja foi iniciado</p>
+        </div>
+      )}
+      <section className="section_container">
     <main className="main_container">
       <div className="circular">
         <div className="inner">
